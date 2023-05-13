@@ -20,11 +20,12 @@ export const GlobalProvider = ({children}) => {
             try {
                 const response = await axios.post(`${INCOME_URL}add-income`, income, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } })
                 console.log(response.data)
-                getIncomes()
+                setIncomes([...incomes, response.data]) // update state here
             } catch (err) {
                 console.log(err)
                 setError(err.response.data.message)
             }
+            getIncomes() // call getIncomes() after state has been updated
         }
     
         const getIncomes = async () => {
@@ -63,12 +64,14 @@ export const GlobalProvider = ({children}) => {
         try {
             const response = await axios.post(`${EXPENSE_URL}add-expense`, expense, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } })
             console.log(response.data)
-            getExpenses()
+            setExpenses([...expenses, response.data]) // update state here
         } catch (err) {
             console.log(err)
             setError(err.response.data.message)
         }
+        getExpenses() // call getExpenses() after state has been updated
     }
+    
 
     const getExpenses = async () => {
         try {
