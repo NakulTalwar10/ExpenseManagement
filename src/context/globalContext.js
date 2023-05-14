@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react"
 import axios from 'axios'
 
-const INCOME_URL="http://localhost:1000/api/income/"
-const EXPENSE_URL="http://localhost:1000/api/expense/"
+const INCOME_URL="https://expensebackend-n7i7.onrender.com/api/income/"
+const EXPENSE_URL="https://expensebackend-n7i7.onrender.com/api/expense/"
 
 
 const GlobalContext = React.createContext()

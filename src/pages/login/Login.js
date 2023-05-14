@@ -20,14 +20,14 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const response = await axios.post('http://localhost:1000/api/users/login', { email, password })
+            const response = await axios.post('https://expensebackend-n7i7.onrender.com/api/users/login', { email, password })
             localStorage.setItem('token', response.data.token)
             console.log(response)
             if (!response.data.token){
                 setError('Invalid Email and Password')
             } else {
                 const token = response.data.token;
-                const userResponse = await axios.get('http://localhost:1000/api/users/me', {
+                const userResponse = await axios.get('https://expensebackend-n7i7.onrender.com/api/users/me', {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
