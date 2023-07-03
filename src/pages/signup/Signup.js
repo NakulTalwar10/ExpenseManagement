@@ -28,7 +28,7 @@ const Signup = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const response = await axios.post('https://expensebackend-n7i7.onrender.com/api/users/register', { ...user })
+            const response = await axios.post('https://expensebackend-lxm8.onrender.com/api/users/register', { ...user })
             navigate('/')
             console.log(response)
         } catch (err) {
